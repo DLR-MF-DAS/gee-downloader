@@ -27,3 +27,9 @@ pip install git+git@github.com:DLR-MF-DAS/gee_downloader.git
 ```
 
 ## Usage
+
+Authenticate to Google Earth Engine (note that authentication mode should be set to notebook)
+
+```
+earthengine authenticate --auth_mode notebook
+```

@@ -39,7 +39,7 @@ def download_tiff(geojson, start_date, end_date, output_file):
     coll = coll.search(start_date=start_date, end_date=end_date, region=polygon, cloudless_portion=0.5)
     comp_im = filt_coll.composite(method='q-mosaic', region=polygon)
     comp_im.download(output_file, region=region, crs="EPSG:4326", scale=10, overwrite=True,
-                     bands=["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B9", "B10", "B11", "B12"]))
+                     bands=["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B9", "B10", "B11", "B12"])
 
 @click.command()
 @click.option('-i', '--geojson', help='Area of interest in the GeoJSON format')
