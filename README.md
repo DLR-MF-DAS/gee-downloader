@@ -12,6 +12,18 @@ dependency. You need to install it from conda-forge in your conda environment:
 conda install -c conda-forge earthengine-api
 ```
 
-This is assuming you already have a conda environment activated.
+This is assuming you already have a conda environment activated. To install from source code you can
+do the following:
+
+```
+git clone git@github.com:DLR-MF-DAS/gee_downloader.git
+cd gee_downloader
+pip install -e .
+```
+Or if you don't want the source code you can do:
+
+```
+pip install git+git@github.com:DLR-MF-DAS/gee_downloader.git
+```
 
 ## Usage
