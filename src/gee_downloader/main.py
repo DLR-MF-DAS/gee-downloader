@@ -1,5 +1,6 @@
 import geedim
 import json
+import click
 
 def read_polygon(geojson):
     """Reads a polygon identifying an area of interest from a GeoJSON file.
