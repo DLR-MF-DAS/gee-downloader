@@ -1,5 +1,5 @@
 [project]
-name = "GEE Downloader"
+name = "gee_downloader"
 version = "0.0.1"
 authors = [
   { name="Vytautas Jancauskas", email="vytautas.jancauskas@dlr.de" },
