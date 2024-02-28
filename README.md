@@ -33,3 +33,15 @@ Authenticate to Google Earth Engine (note that authentication mode should be set
 ```
 earthengine authenticate --auth_mode notebook
 ```
+
+Then you can run the script by executing the module with the -m flag.
+
+```
+python3 -m gee_downloader --help
+```
+
+Which will tell you what the options for the script are.
+
+```
+
+```
