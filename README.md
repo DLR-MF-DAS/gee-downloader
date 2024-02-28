@@ -64,3 +64,7 @@ project.
 ```
 python3 -m gee_downloader -i test/munich.json -s 2019-01-01 -e 2019-04-01 --output-file test.tiff
 ```
+
+Which should result in a 13 band image part of which looks like this.
+
+![munich](test/munich.png)
