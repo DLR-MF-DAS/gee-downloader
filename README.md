@@ -43,5 +43,24 @@ python3 -m gee_downloader --help
 Which will tell you what the options for the script are.
 
 ```
+Usage: python -m gee_downloader [OPTIONS]
 
+Options:
+  -i, --geojson TEXT      Area of interest in the GeoJSON format  [required]
+  -s, --start-date TEXT   Starting date for the composite (yyyy-mm-dd)
+                          [required]
+  -e, --end-date TEXT     End date for the composite (yyyy-mm-dd)  [required]
+  -o, --output-file TEXT  File to write the results to  [required]
+  --help                  Show this message and exit.
+```
+
+For designing command line interfaces I recomment the click library for Python - https://click.palletsprojects.com/. 
+The implementation of the script can be found under `src/gee_downloader/__main__.py`. Please consider following this 
+structure if your project requires you to provide an executable script.
+
+To download some actual data you can try the following arguments from inside the repository file structure of this 
+project.
+
+```
+python3 -m gee_downloader -i test/munich.json -s 2019-01-01 -e 2019-04-01 --output-file test.tiff
 ```
