@@ -17,6 +17,7 @@ dependencies = [
     "rasterio",
     "pytest",
     "click",
+    "pdoc",
 ]
 
 [project.urls]
