@@ -64,3 +64,15 @@ project.
 ```
 python3 -m gee_downloader -i test/munich.json -s 2019-01-01 -e 2019-04-01 --output-file test.tiff
 ```
+
+Which should result in a 13 band image part of which looks like this.
+
+![munich](test/munich.png)
+
+## CI/CD Setup
+
+### Testing
+
+For testing you should use https://docs.pytest.org/. The GitHub Actions workflow file that runs the tests
+is located under gee_downloader/.github/workflows/python-app.yml. Use it and the tests under the test/
+subdirectory as an example for your own projects.
