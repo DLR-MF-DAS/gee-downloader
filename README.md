@@ -93,3 +93,5 @@ The package is automatically built and published to PyPi after each release. You
 https://pypi.org/project/gee-downloader/. The workflow reposnible for this is defined at
 gee_downloader/.github/workflows/python-publish.yml. You need to correctly set-up a PyPi API token and
 add it to your GitHub secrets as described here: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/.
+The workflow is activated when a new release is created. To create a new release go to the releases
+section of your GitHub repository https://github.com/DLR-MF-DAS/gee_downloader/releases.
