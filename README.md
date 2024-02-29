@@ -81,9 +81,15 @@ subdirectory as an example for your own projects.
 
 The documentation for this library is automatically built and uploaded to GitHub Pages on each commit.
 The workflow responsible for this is defined at gee_downloader/.github/workflows/pdoc.yml. I prefer
-to use pdoc for documentation building (over sphinx which is in my view an outdated abomination) but
-if you prefer to use something more complex the idea behind building and publishing it stays the same.
+to use pdoc for documentation building but if you prefer to use something more complex the idea behind 
+building and publishing it stays the same. The documentation is built from Python docstrings. For docstrings
+I recommend to use the NumPy docstrings standard https://numpydoc.readthedocs.io/en/latest/format.html.
 
 You can find the documentation here: https://dlr-mf-das.github.io/gee_downloader/
 
 ### Publishing
+
+The package is automatically built and published to PyPi after each release. You can find the package here
+https://pypi.org/project/gee-downloader/. The workflow reposnible for this is defined at
+gee_downloader/.github/workflows/python-publish.yml. You need to correctly set-up a PyPi API token and
+add it to your GitHub secrets as described here: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/.
