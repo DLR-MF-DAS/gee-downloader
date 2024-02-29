@@ -76,3 +76,14 @@ Which should result in a 13 band image part of which looks like this.
 For testing you should use https://docs.pytest.org/. The GitHub Actions workflow file that runs the tests
 is located under gee_downloader/.github/workflows/python-app.yml. Use it and the tests under the test/
 subdirectory as an example for your own projects.
+
+### Documentation
+
+The documentation for this library is automatically built and uploaded to GitHub Pages on each commit.
+The workflow responsible for this is defined at gee_downloader/.github/workflows/pdoc.yml. I prefer
+to use pdoc for documentation building (over sphinx which is in my view an outdated abomination) but
+if you prefer to use something more complex the idea behind building and publishing it stays the same.
+
+You can find the documentation here: https://dlr-mf-das.github.io/gee_downloader/
+
+### Publishing
