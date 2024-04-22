@@ -1,6 +1,7 @@
 import geedim
 import json
 import click
+import os
 
 def read_polygon(geojson):
     """Reads a polygon identifying an area of interest from a GeoJSON file.
@@ -20,7 +21,7 @@ def read_polygon(geojson):
         data = json.load(fd)
     return data["features"][0]["geometry"]
 
-def download_tiff(geojson, start_date, end_date, output_file):
+def download_tiff(geojson, start_date, end_date, output_file, full):
     """Will download a cloud-free composite TIFF from GEE.
 
     Parameters
@@ -34,10 +35,18 @@ def download_tiff(geojson, start_date, end_date, output_file):
         End date for choosing images for the composite (in the yyyy-mm-dd format)
     output_file: str
         Output file name
+    full: bool
+        Whether to download all images (no cloud masking)
     """
     polygon = read_polygon(geojson)
     coll = geedim.MaskedCollection.from_name('COPERNICUS/S2')
     coll = coll.search(start_date=start_date, end_date=end_date, region=polygon, cloudless_portion=0.5)
-    comp_im = coll.composite(method='mosaic', region=polygon)
-    comp_im.download(output_file, region=polygon, crs="EPSG:4326", scale=10, overwrite=True,
-                     bands=["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B9", "B10", "B11", "B12"])
+    if not full:
+        comp_im = coll.composite(method='mosaic', region=polygon)
+        comp_im.download(output_file, region=polygon, crs="EPSG:4326", scale=10, overwrite=True,
+                         bands=["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B9", "B10", "B11", "B12"])
+    else:
+        for key in coll.properties:
+            im = geedim.MaskedImage.from_id(key, mask=False)
+            im.download(os.path.join(output_file, key.replace('/', '_') + '.tif'), region=polygon)
+
